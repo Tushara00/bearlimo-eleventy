@@ -53,13 +53,17 @@
               </div>
             </li>
             <li><a href=" fleet.html">Fleet</a></li><li><a href=" about.html">About</a></li><li><a href=" contact.html">Contact</a></li>
-
-            <li class="has-dropdown">
-              <button type="button">Locations</button>
-              <div class="dropdown" role="menu" aria-label="Service locations">
-                <a href=" albany.html">Albany</a><a href=" locations.html#alpharetta">Alpharetta</a><a href=" locations.html#athens">Athens</a><a href=" locations.html#atlanta">Atlanta</a><a href=" locations.html#augusta">Augusta</a><a href=" locations.html#columbus">Columbus</a><a href=" locations.html#cypress">Cypress</a><a href=" locations.html#destin">Destin</a><a href=" locations.html#dublin">Dublin</a><a href=" locations.html#flowery-branch">Flowery Branch</a><a href=" locations.html#houston">Houston</a><a href=" locations.html#jacksonville">Jacksonville</a><a href=" locations.html#johns-creek">Johns Creek</a><a href=" locations.html#macon">Macon</a><a href=" locations.html#mcdonough">McDonough</a><a href=" locations.html#miami">Miami</a><a href=" locations.html#milledgeville">Milledgeville</a><a href=" locations.html#nashville">Nashville</a><a href=" locations.html#orlando">Orlando</a><a href=" locations.html#peachtree-city">Peachtree City</a><a href=" locations.html#sandy-springs">Sandy Springs</a><a href=" locations.html#savannah">Savannah</a><a href=" locations.html#stockbridge">Stockbridge</a><a href=" locations.html#sugar-land">Sugar Land</a><a href=" locations.html#tallahassee">Tallahassee</a><a href=" locations.html#tampa">Tampa</a><a href=" locations.html#tomball">Tomball</a>
-              </div>
-            </li>
+<li class="has-dropdown">
+  <button type="button">Locations</button>
+  <div class="dropdown" role="menu" aria-label="Service locations">
+    {% for loc in collections.locations %}
+      {# Strip out the .html extension for clean trailing slash paths #}
+      <a href="/{{ loc.fileSlug }}/">{{ loc.data.title }}</a>
+    {% else %}
+      <span style="padding: 8px 12px; color: #999; font-size: 0.8rem;">No active cities loaded</span>
+    {% endfor %}
+  </div>
+</li>
             <li><a href=" terms.html">Terms</a></li>
             <li class="nav-cta">
               <a  style = "color:#000000" class="btn btn-solid btn-sm" href="https://app.myridesync.com/quote?uid=grandlimousine" rel="noopener" target="_blank">Get a Quote</a>

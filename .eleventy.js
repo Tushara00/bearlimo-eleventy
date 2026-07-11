@@ -6,6 +6,12 @@ module.exports = function(eleventyConfig){
  eleventyConfig.addFilter("postDate", (dateObj) => {
     return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);
   });
+
+  // Add this inside your .eleventy.js configuration function
+eleventyConfig.addCollection("locations", function(collectionApi) {
+  // Pulls all markdown files directly from your src/locations/ directory
+  return collectionApi.getFilteredByGlob("src/locations/*.md");
+});
     // Minify HTML output (conservative: collapse indentation whitespace but keep
     // inline spacing, strip HTML comments; inline JS/CSS left untouched to be safe).
     eleventyConfig.addTransform("htmlmin", async function(content){

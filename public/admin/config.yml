@@ -25,6 +25,7 @@ collections:
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
 
+          # --- HERO SECTION ---
           - label: "Hero"
             name: "hero"
             widget: "object"
@@ -32,26 +33,14 @@ collections:
               - { label: "Eyebrow", name: "eyebrow", widget: "string" }
               - { label: "Heading", name: "heading", widget: "string" }
               - { label: "Subtext", name: "subtext", widget: "text" }
-
-              - {
-                  label: "Hero JPG Image",
-                  name: "image_jpg",
-                  widget: "image"
-                }
-
-              - {
-                  label: "Hero WebP Image",
-                  name: "image_webp",
-                  widget: "image"
-                }
-
+              - { label: "Hero JPG Image", name: "image_jpg", widget: "image" }
+              - { label: "Hero WebP Image", name: "image_webp", widget: "image" }
               - label: "Primary Button"
                 name: "primary_cta"
                 widget: "object"
                 fields:
                   - { label: "Text", name: "text", widget: "string" }
                   - { label: "Link", name: "link", widget: "string" }
-
               - label: "Secondary Button"
                 name: "secondary_cta"
                 widget: "object"
@@ -59,19 +48,167 @@ collections:
                   - { label: "Text", name: "text", widget: "string" }
                   - { label: "Link", name: "link", widget: "string" }
 
-  - name: "locations"
-    label: "Service Locations"
-    folder: "content/locations"
-    format: "frontmatter"
-    extension: "md"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { name: "title", label: "City name", widget: "string" }
-      - { name: "slug", label: "URL slug (e.g. atlanta)", widget: "string" }
-      - { name: "description", label: "Short description (SEO)", widget: "text" }
-      - { name: "body", label: "Body", widget: "markdown", required: false }
+          # --- HERO INTRO SECTION ---
+          - label: "Hero Intro Section"
+            name: "intro"
+            widget: "object"
+            fields:
+              - { label: "Trending Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Main Section Heading", name: "heading", widget: "string" }
+              - { label: "Description Paragraph", name: "description", widget: "text" }
+              - { label: "Accent Link Text", name: "link_text", widget: "string" }
+              - { label: "Accent Link URL", name: "link_url", widget: "string" }
 
+# --- SEO CORE COPY PILLAR SECTION ---
+          - label: "SEO Core Copy Section"
+            name: "seo_block"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow Text", name: "eyebrow", widget: "string" }
+              - { label: "Main Section Heading", name: "heading", widget: "string" }
+              - { label: "Introductory Paragraph", name: "intro_text", widget: "text" }
+              
+              # Flexible repeatable items list
+              - label: "Value Pillars / Highlights"
+                name: "pillars"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Pillar Title", name: "title", widget: "string" }
+                  - { label: "Pillar Content Description", name: "body", widget: "text" }
+      - label: "Split Article & Sidebar Section"
+        name: "split_section"
+        widget: "object"
+        fields:
+              # Left Column
+              - { label: "Main Article Heading", name: "left_heading", widget: "string" }
+              - { label: "Main Article Content", name: "left_body", widget: "markdown" }
+              
+              # Right Column (Sidebar)
+              - { label: "Sidebar Heading", name: "right_heading", widget: "string" }
+              - label: "Sidebar Quick Links"
+                name: "sidebar_links"
+                widget: "list"
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: "Link Label Text", name: "label", widget: "string" }
+                  - { label: "Link Destination URL", name: "url", widget: "string" }
+                  - { label: "Style as Red Urgent Link?", name: "is_accent", widget: "boolean", default: false }   
+
+        # --- SERVICES SECTION ---
+      - label: "Services Section"
+        name: "services_section"
+        widget: "object"
+        fields:
+              - { label: "Section Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Main Section Heading", name: "heading", widget: "string" }
+              - { label: "Introductory Description", name: "description", widget: "text" }
+              
+              # Repeatable service cards grid
+              - label: "Service Cards Grid"
+                name: "cards"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Single Letter Icon", name: "icon_letter", widget: "string", hint: "A single capital letter (e.g., A, C, W)" }
+                  - { label: "Service Title", name: "title", widget: "string" }
+                  - { label: "Service Description", name: "body", widget: "text" }
+                  - { label: "Link Destination URL", name: "url", widget: "string" } 
+
+     # --- THE FLEET GRID SECTION ---
+      - label: "Fleet Grid Section"
+        name: "fleet_section"
+        widget: "object"
+        fields:
+              - { label: "Section Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Main Section Heading", name: "heading", widget: "string" }
+              
+              # Repeatable fleet vehicle cards
+              - label: "Fleet Vehicle List"
+                name: "vehicles"
+                widget: "list"
+                summary: "{{fields.name}}"
+                fields:
+                  - { label: "Vehicle Class Name", name: "name", widget: "string" }
+                  - { label: "Capacity / Specifications Text", name: "specs", widget: "string" }
+                  - { label: "Vehicle Image (JPG)", name: "image_jpg", widget: "image" }
+                  - { label: "Vehicle Image (WebP Variant)", name: "image_webp", widget: "image" }   
+
+    # --- COVERAGE LOCATIONS SECTION ---
+      - label: "Coverage Locations Section"
+        name: "coverage_section"
+        widget: "object"
+        fields:
+              - { label: "Section Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Main Section Heading", name: "heading", widget: "string" }
+              - { label: "Subheading Paragraph Description", name: "description", widget: "text" }
+              
+              # Repeatable simple text / link grid
+              - label: "Active Cities Coverage List"
+                name: "locations"
+                widget: "list"
+                summary: "{{fields.city_name}}"
+                fields:
+                  - { label: "City Name", name: "city_name", widget: "string" }
+                  - { label: "Target URL / Anchor Link", name: "url", widget: "string", hint: "e.g., locations.html#atlanta or /locations/atlanta" }  
+    # --- CTA BAND SECTION ---
+      - label: "Bottom CTA Band"
+        name: "cta_band"
+        widget: "object"
+        fields:
+              - { label: "Small Eyebrow Text", name: "eyebrow", widget: "string" }
+              - { label: "Main Heading", name: "heading", widget: "string" }
+              - { label: "Description Paragraph", name: "description", widget: "text" }  
+
+  - name: "locations"
+    label: "City Landing Pages"
+    folder: "src/locations" # Where raw markdown files will be saved
+    create: true # Allows adding new cities seamlessly
+    slug: "{{slug}}"
+    extension: "md"
+    format: "yaml-frontmatter"
+    fields:
+      - { label: "City Name", name: "title", widget: "string", hint: "e.g., Albany, Atlanta, Houston" }
+      - { label: "State Abbreviation", name: "state_abbr", widget: "string", hint: "e.g., NY, GA, TX" }
+      
+      # --- SEO Metadata ---
+      - label: "SEO Settings"
+        name: "seo"
+        widget: "object"
+        fields:
+          - { label: "Meta Title Override", name: "meta_title", widget: "string" }
+          - { label: "Meta Description", name: "meta_description", widget: "text" }
+          - { label: "Airport Code Served", name: "airport_code", widget: "string", hint: "e.g., ALB, ATL, IAH" }
+          - { label: "Wikipedia URL Reference", name: "wiki_url", widget: "string", hint: "Used for structured Schema validation" }
+
+      # --- Main Layout Body Content ---
+      - label: "Page Main Layout Content"
+        name: "content_blocks"
+        widget: "object"
+        fields:
+          - { label: "Section Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Main Header (H1)", name: "h1", widget: "string" }
+          - { label: "Hero Body Image", name: "hero_image", widget: "image", default: "assets/img/hero.jpg" }
+          - { label: "Sub-heading (H2)", name: "h2_intro", widget: "string" }
+          - { label: "Introductory Body Paragraphs", name: "body_text", widget: "markdown" }
+          
+          # Repeatable Key Corporate Destinations / Venues List
+          - label: "Key Local Corporate Venues List"
+            name: "local_venues"
+            widget: "list"
+            fields:
+              - { label: "Venue Name", name: "venue_name", widget: "string" }
+
+      # --- Sidebar Editorial Testimonials ---
+      - label: "Sidebar Editorial Reviews"
+        name: "reviews"
+        widget: "list"
+        max: 3
+        summary: "{{fields.reviewer_name}}"
+        fields:
+          - { label: "Review Text Quote", name: "quote", widget: "text" }
+          - { label: "Reviewer Name & Designation", name: "reviewer_name", widget: "string" }                                
+  # --- GLOBAL SITE SETTINGS ---
   - name: "settings"
     label: "Site Settings"
     files:
