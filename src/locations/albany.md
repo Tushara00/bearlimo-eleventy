@@ -14,7 +14,7 @@ content_blocks:
   hero_image: assets/img/hero.jpg
   h2_intro: Professional Ground Transport Built Around Your Timeline
   body_text: >-
-    Professional Ground Transport Built Around Your Timeline
+    ## Professional Ground Transport Built Around Your Timeline
 
     Navigating New York's state capital demands absolute precision. Book a professional Albany limousine and black car service for your next airport transfer, hourly corporate rental, single ride to downtown executive offices, or private event. From high-profile meetings near the State Capitol Building to seamless logistics for local conferences, our localized network minimizes travel friction within the city limits of Albany.
 
