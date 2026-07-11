@@ -59,7 +59,7 @@ collections:
               - { label: "Accent Link Text", name: "link_text", widget: "string" }
               - { label: "Accent Link URL", name: "link_url", widget: "string" }
 
-# --- SEO CORE COPY PILLAR SECTION ---
+          # --- SEO CORE COPY PILLAR SECTION ---
           - label: "SEO Core Copy Section"
             name: "seo_block"
             widget: "object"
@@ -76,10 +76,12 @@ collections:
                 fields:
                   - { label: "Pillar Title", name: "title", widget: "string" }
                   - { label: "Pillar Content Description", name: "body", widget: "text" }
-      - label: "Split Article & Sidebar Section"
-        name: "split_section"
-        widget: "object"
-        fields:
+
+          # --- SPLIT ARTICLE SECTION ---
+          - label: "Split Article & Sidebar Section"
+            name: "split_section"
+            widget: "object"
+            fields:
               # Left Column
               - { label: "Main Article Heading", name: "left_heading", widget: "string" }
               - { label: "Main Article Content", name: "left_body", widget: "markdown" }
@@ -95,11 +97,11 @@ collections:
                   - { label: "Link Destination URL", name: "url", widget: "string" }
                   - { label: "Style as Red Urgent Link?", name: "is_accent", widget: "boolean", default: false }   
 
-        # --- SERVICES SECTION ---
-      - label: "Services Section"
-        name: "services_section"
-        widget: "object"
-        fields:
+          # --- SERVICES SECTION ---
+          - label: "Services Section"
+            name: "services_section"
+            widget: "object"
+            fields:
               - { label: "Section Eyebrow", name: "eyebrow", widget: "string" }
               - { label: "Main Section Heading", name: "heading", widget: "string" }
               - { label: "Introductory Description", name: "description", widget: "text" }
@@ -115,11 +117,11 @@ collections:
                   - { label: "Service Description", name: "body", widget: "text" }
                   - { label: "Link Destination URL", name: "url", widget: "string" } 
 
-     # --- THE FLEET GRID SECTION ---
-      - label: "Fleet Grid Section"
-        name: "fleet_section"
-        widget: "object"
-        fields:
+          # --- THE FLEET GRID SECTION ---
+          - label: "Fleet Grid Section"
+            name: "fleet_section"
+            widget: "object"
+            fields:
               - { label: "Section Eyebrow", name: "eyebrow", widget: "string" }
               - { label: "Main Section Heading", name: "heading", widget: "string" }
               
@@ -134,11 +136,11 @@ collections:
                   - { label: "Vehicle Image (JPG)", name: "image_jpg", widget: "image" }
                   - { label: "Vehicle Image (WebP Variant)", name: "image_webp", widget: "image" }   
 
-    # --- COVERAGE LOCATIONS SECTION ---
-      - label: "Coverage Locations Section"
-        name: "coverage_section"
-        widget: "object"
-        fields:
+          # --- COVERAGE LOCATIONS SECTION ---
+          - label: "Coverage Locations Section"
+            name: "coverage_section"
+            widget: "object"
+            fields:
               - { label: "Section Eyebrow", name: "eyebrow", widget: "string" }
               - { label: "Main Section Heading", name: "heading", widget: "string" }
               - { label: "Subheading Paragraph Description", name: "description", widget: "text" }
@@ -151,11 +153,12 @@ collections:
                 fields:
                   - { label: "City Name", name: "city_name", widget: "string" }
                   - { label: "Target URL / Anchor Link", name: "url", widget: "string", hint: "e.g., locations.html#atlanta or /locations/atlanta" }  
-    # --- CTA BAND SECTION ---
-      - label: "Bottom CTA Band"
-        name: "cta_band"
-        widget: "object"
-        fields:
+
+          # --- CTA BAND SECTION ---
+          - label: "Bottom CTA Band"
+            name: "cta_band"
+            widget: "object"
+            fields:
               - { label: "Small Eyebrow Text", name: "eyebrow", widget: "string" }
               - { label: "Main Heading", name: "heading", widget: "string" }
               - { label: "Description Paragraph", name: "description", widget: "text" }  
@@ -208,6 +211,7 @@ collections:
         fields:
           - { label: "Review Text Quote", name: "quote", widget: "text" }
           - { label: "Reviewer Name & Designation", name: "reviewer_name", widget: "string" }                                
+          
   # --- GLOBAL SITE SETTINGS ---
   - name: "settings"
     label: "Site Settings"

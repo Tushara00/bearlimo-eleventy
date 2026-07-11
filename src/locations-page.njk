@@ -1,15 +1,67 @@
-
 ---
 pagination:
   data: collections.locations
   size: 1
   alias: location
-permalink: "{{ location.fileSlug }}/index.html"  # <-- Change this line
+permalink: "{{ location.fileSlug }}/index.html" 
 layout: "base.njk"
 eleventyExcludeFromCollections: true
 ---
   
-    
+    <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <title>{{ location.data.seo.meta_title | default('Luxury Limo Service ' + location.data.title + ' ' + location.data.state_abbr + ' | Bear Limo') }}</title>
+  <meta name="description" content="{{ location.data.seo.meta_description }}">
+  <link class="canonical" href="https://bearlimo.com/{{ location.fileSlug }}.html">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Bear Limo">
+  <meta property="og:title" content="{{ location.data.seo.meta_title }}">
+  <meta property="og:description" content="{{ location.data.seo.meta_description }}">
+  <meta property="og:url" content="https://bearlimo.com/{{ location.fileSlug }}.html">
+  <meta property="og:image" content="https://bearlimo.com/assets/img/hero.jpg">
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700&family=Playfair+Display:wght=500;600;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+
+  <!-- Dynamic JSON-LD Schema Data Module -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TaxiService",
+    "name": "Bear Limo {{ location.data.title }}",
+    "url": "https://bearlimo.com/{{ location.fileSlug }}.html",
+    "telephone": "{{ settings.general.top_bar.phone_tel | default('(404) 424-4499') }}",
+    "priceRange": "$$$",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Grand Limousine",
+      "sameAs": "https://www.grandlimousine.com"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "{{ location.data.title }}",
+      "sameAs": "{{ location.data.seo.wiki_url }}"
+    }
+  }
+  </script>
+  <style>
+    @media (max-width: 960px) {
+      .container-split { grid-template-columns: 1fr !important; }
+      aside { position: static !important; margin-top: 48px; }
+    }
+  </style>
+</head>
+<body>
     <main id="main">
       <section class="section" style="padding-top: clamp(40px, 6vw, 80px);">
         <div class="container container-split" style="display: grid; grid-template-columns: 3fr 1fr; gap: clamp(32px, 5vw, 64px); align-items: start;">
