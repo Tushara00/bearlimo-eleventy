@@ -1,8 +1,11 @@
+const { DateTime } = require("luxon");
 module.exports = function(eleventyConfig){
     eleventyConfig.addPassthroughCopy('./src/css/styles.css')
     eleventyConfig.addPassthroughCopy('./src/assets')
       eleventyConfig.addPassthroughCopy('./src/admin');
-
+ eleventyConfig.addFilter("postDate", (dateObj) => {
+    return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);
+  });
     // Minify HTML output (conservative: collapse indentation whitespace but keep
     // inline spacing, strip HTML comments; inline JS/CSS left untouched to be safe).
     eleventyConfig.addTransform("htmlmin", async function(content){

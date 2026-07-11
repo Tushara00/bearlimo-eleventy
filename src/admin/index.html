@@ -1,12 +1,24 @@
-<!doctype html>
+<!-- admin/index.html -->
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Content Manager — Bear Limo</title>
-  </head>
-  <body>
-    <!-- Decap CMS single-page app -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  </body>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>GrandLimousine Content Manager</title>
+		<!-- Include the identity widget -->
+		<script
+			src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+			type="text/javascript"
+		></script>
+	</head>
+	<body>
+		<style>
+			/* Sembunyikan tombol preview */
+			[data-testid="preview-button"],
+			.cms-preview-dropdown {
+				display: none !important;
+			}
+		</style>
+		<script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+	</body>
 </html>
