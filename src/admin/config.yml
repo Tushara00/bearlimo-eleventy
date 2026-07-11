@@ -18,17 +18,46 @@ logo_url: assets/img/hero.jpg
 collections:
   - name: "pages"
     label: "Pages"
-    folder: "content/pages"
-    format: "frontmatter"
-    extension: "md"
-    create: false
-    slug: "{{slug}}"
-    fields:
-      - { name: "title", label: "Page title (SEO)", widget: "string" }
-      - { name: "description", label: "Meta description (SEO)", widget: "text" }
-      - { name: "heading", label: "Main heading (H1)", widget: "string" }
-      - { name: "subheading", label: "Subheading / lead", widget: "text" }
-      - { name: "body", label: "Body content", widget: "markdown" }
+    files:
+      - name: "home"
+        label: "Home Page"
+        file: "src/index.md"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Subtext", name: "subtext", widget: "text" }
+
+              - {
+                  label: "Hero JPG Image",
+                  name: "image_jpg",
+                  widget: "image"
+                }
+
+              - {
+                  label: "Hero WebP Image",
+                  name: "image_webp",
+                  widget: "image"
+                }
+
+              - label: "Primary Button"
+                name: "primary_cta"
+                widget: "object"
+                fields:
+                  - { label: "Text", name: "text", widget: "string" }
+                  - { label: "Link", name: "link", widget: "string" }
+
+              - label: "Secondary Button"
+                name: "secondary_cta"
+                widget: "object"
+                fields:
+                  - { label: "Text", name: "text", widget: "string" }
+                  - { label: "Link", name: "link", widget: "string" }
 
   - name: "locations"
     label: "Service Locations"
