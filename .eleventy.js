@@ -29,6 +29,12 @@ eleventyConfig.addCollection("locations", function(collectionApi) {
   // Pulls all markdown files directly from your src/locations/ directory
   return collectionApi.getFilteredByGlob("src/locations/*.md");
 });
+
+// ADD THIS BLOCK FOR YOUR SERVICES
+  eleventyConfig.addCollection("services", function(collectionApi) {
+    // Pulls all markdown files directly from your src/services/ directory
+    return collectionApi.getFilteredByGlob("src/services/*.md");
+  });
     // Minify HTML output (conservative: collapse indentation whitespace but keep
     // inline spacing, strip HTML comments; inline JS/CSS left untouched to be safe).
     eleventyConfig.addTransform("htmlmin", async function(content){

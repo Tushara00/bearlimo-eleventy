@@ -1,5 +1,6 @@
 ---
 title: "Airport Transfer"
+slug: "airport-transfer"
 seo:
   meta_title: "Luxury Airport Transfer & Black Car Service | Bear Limo"
   meta_description: "Premium corporate black car service, luxury airport transfers, and premium chauffeured transportation. Book your ride online."

@@ -3,7 +3,7 @@ pagination:
   data: collections.services
   size: 1
   alias: service
-permalink: "{{ service.fileSlug }}/index.html" 
+permalink: "{{ service.data.slug or service.fileSlug }}/index.html"
 layout: "base.njk"
 eleventyExcludeFromCollections: true
 ---
