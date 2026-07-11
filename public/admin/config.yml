@@ -163,6 +163,42 @@ collections:
               - { label: "Main Heading", name: "heading", widget: "string" }
               - { label: "Description Paragraph", name: "description", widget: "text" }  
 
+  - name: "services"
+    label: "Service Pages"
+    folder: "src/services"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "yaml-frontmatter"
+    fields:
+      - { label: "Service Slug Name", name: "title", widget: "string", hint: "e.g., Airport Transfer, Corporate Transportation" }
+      
+      # --- Matching Location Structure Exactly ---
+      - label: "SEO Settings"
+        name: "seo"
+        widget: "object"
+        fields:
+          - { label: "Meta Title Override", name: "meta_title", widget: "string" }
+          - { label: "Meta Description", name: "meta_description", widget: "text" }
+          
+      - label: "Page Content Blocks"
+        name: "content_blocks"
+        widget: "object"
+        fields:
+          - { label: "Section Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Main Header (H1)", name: "h1", widget: "string" }
+          - { label: "Hero Image", name: "hero_image", widget: "image", default: "assets/img/hero.jpg" }
+          - { label: "Body Text Content", name: "body_text", widget: "markdown", minimal: true }
+
+      - label: "Sidebar Testimonials Array"
+        name: "reviews"
+        widget: "list"
+        max: 3
+        summary: "{{fields.reviewer_name}}"
+        fields:
+          - { label: "Review Quote", name: "quote", widget: "text" }
+          - { label: "Reviewer Name & Designation", name: "reviewer_name", widget: "string" }
+
   - name: "locations"
     label: "City Landing Pages"
     folder: "src/locations" # Where raw markdown files will be saved
@@ -172,7 +208,7 @@ collections:
     format: "yaml-frontmatter"
     fields:
       - { label: "City Name", name: "title", widget: "string", hint: "e.g., Albany, Atlanta, Houston" }
-      - { label: "State Abbreviation", name: "state_abbr", widget: "string", hint: "e.g., NY, GA, TX" }
+     
       
       # --- SEO Metadata ---
       - label: "SEO Settings"
