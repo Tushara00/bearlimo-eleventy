@@ -1,0 +1,60 @@
+# Decap CMS config for Bear Limo
+# Once deployed (e.g. Netlify), enable Git Gateway + Netlify Identity
+# and Decap will edit these markdown files directly in your repo.
+backend:
+  name: git-gateway
+  branch: main
+
+# Local dev: run `npx decap-server` and set local_backend: true
+local_backend: true
+
+media_folder: "public/site/assets/img"
+public_folder: "/site/assets/img"
+
+site_url: https://bearlimo.com
+display_url: https://bearlimo.com
+logo_url: /site/assets/img/hero.jpg
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    folder: "content/pages"
+    format: "frontmatter"
+    extension: "md"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Page title (SEO)", widget: "string" }
+      - { name: "description", label: "Meta description (SEO)", widget: "text" }
+      - { name: "heading", label: "Main heading (H1)", widget: "string" }
+      - { name: "subheading", label: "Subheading / lead", widget: "text" }
+      - { name: "body", label: "Body content", widget: "markdown" }
+
+  - name: "locations"
+    label: "Service Locations"
+    folder: "content/locations"
+    format: "frontmatter"
+    extension: "md"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "City name", widget: "string" }
+      - { name: "slug", label: "URL slug (e.g. atlanta)", widget: "string" }
+      - { name: "description", label: "Short description (SEO)", widget: "text" }
+      - { name: "body", label: "Body", widget: "markdown", required: false }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "general"
+        label: "General"
+        file: "content/settings/general.md"
+        format: "frontmatter"
+        fields:
+          - { name: "site_name", label: "Site name", widget: "string" }
+          - { name: "phone", label: "Phone number", widget: "string" }
+          - { name: "phone_tel", label: "Phone (tel: format)", widget: "string" }
+          - { name: "email", label: "Contact email", widget: "string" }
+          - { name: "address", label: "Address", widget: "text" }
+          - { name: "quote_url", label: "Quote / booking URL", widget: "string" }
+          - { name: "main_site_url", label: "Main site URL", widget: "string" }
