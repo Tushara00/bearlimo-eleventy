@@ -185,6 +185,7 @@ collections:
           - { label: "Wikipedia URL Reference", name: "wiki_url", widget: "string", hint: "Used for structured Schema validation" }
 
       # --- Main Layout Body Content ---
+      # --- Main Layout Body Content ---
       - label: "Page Main Layout Content"
         name: "content_blocks"
         widget: "object"
@@ -192,16 +193,15 @@ collections:
           - { label: "Section Eyebrow", name: "eyebrow", widget: "string" }
           - { label: "Main Header (H1)", name: "h1", widget: "string" }
           - { label: "Hero Body Image", name: "hero_image", widget: "image", default: "assets/img/hero.jpg" }
-          - { label: "Sub-heading (H2)", name: "h2_intro", widget: "string" }
-          - { label: "Introductory Body Paragraphs", name: "body_text", widget: "markdown" }
           
-          # Repeatable Key Corporate Destinations / Venues List
-          - label: "Key Local Corporate Venues List"
-            name: "local_venues"
-            widget: "list"
-            fields:
-              - { label: "Venue Name", name: "venue_name", widget: "string" }
-
+          # --- Clean Markdown Editor Box ---
+          - label: "Introductory Body Paragraphs"
+            name: "body_text"
+            widget: "markdown"
+            editor_components: [] # Disables confusing custom embeds
+            modes: ["markdown"]   # Force the CMS to stay in raw Markdown view to protect your ## headings!
+          
+    
       # --- Sidebar Editorial Testimonials ---
       - label: "Sidebar Editorial Reviews"
         name: "reviews"

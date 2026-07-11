@@ -67,27 +67,20 @@ eleventyExcludeFromCollections: true
         <div class="container container-split" style="display: grid; grid-template-columns: 3fr 1fr; gap: clamp(32px, 5vw, 64px); align-items: start;">
           
           <!-- Left Column: CMS Parsed Text Layout -->
-          <div class="prose" style="max-width: 100%;">
-            <span class="eyebrow" style="margin-bottom: 8px;">{{ location.data.content_blocks.eyebrow }}</span>
-            <h1 style="margin-bottom: 24px;">{{ location.data.content_blocks.h1 }}</h1>
-            
-            <figure style="margin: 0 0 40px; border: 1px solid var(--line);">
-              <img src="/{{ location.data.content_blocks.hero_image }}" alt="Luxury black car service operating in {{ location.data.title }}, {{ location.data.state_abbr }}" style="width: 100%; height: auto; display: block;">
-            </figure>
+         <div class="prose" style="max-width: 100%;">
+  <span class="eyebrow" style="margin-bottom: 8px;">{{ location.data.content_blocks.eyebrow }}</span>
+  <h1 style="margin-bottom: 24px;">{{ location.data.content_blocks.h1 }}</h1>
+  
+  <figure style="margin: 0 0 40px; border: 1px solid var(--line);">
+    <img src="/{{ location.data.content_blocks.hero_image }}" alt="Luxury black car service operating in {{ location.data.title }}, {{ location.data.state_abbr }}" style="width: 100%; height: auto; display: block;">
+  </figure>
 
-            <h2>{{ location.data.content_blocks.h2_intro }}</h2>
-            <div class="markdown-body">
-              {{ location.data.content_blocks.body_text | safe }}
-            </div>
+  <div class="markdown-body">
+    {# Every single H2 heading, paragraph, and bullet list will compile directly out of this block #}
+    {{ location.data.content_blocks.body_text | markdown | safe }}
+  </div>
 
-            {# Conditional Layout Block: Displays Local Venues Grid dynamically if populated #}
-            {% if location.data.content_blocks.local_venues %}
-              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; margin: 24px 0; font-size: 0.95rem; color: var(--muted);">
-                {% for venue in location.data.content_blocks.local_venues %}
-                  <div>• {{ venue.venue_name }}</div>
-                {% endfor %}
-              </div>
-            {% endif %}
+</div>       
           </div>
 
           <!-- Right Column: Sidebar Testimonials Array -->
