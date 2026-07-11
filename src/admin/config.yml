@@ -186,6 +186,7 @@ collections:
 
       # --- Main Layout Body Content ---
       # --- Main Layout Body Content ---
+     # --- Main Layout Body Content ---
       - label: "Page Main Layout Content"
         name: "content_blocks"
         widget: "object"
@@ -198,8 +199,8 @@ collections:
           - label: "Introductory Body Paragraphs"
             name: "body_text"
             widget: "markdown"
-            editor_components: [] # Disables confusing custom embeds
-            modes: ["markdown"]   # Force the CMS to stay in raw Markdown view to protect your ## headings!
+            minimal: true          # Removes complex visual formatting bars to encourage clean copy
+            buttons: ["heading-two", "bold", "italic", "link", "bulleted-list", "numbered-list"] # Strips out weird widget embeds  # Force the CMS to stay in raw Markdown view to protect your ## headings!
           
     
       # --- Sidebar Editorial Testimonials ---
