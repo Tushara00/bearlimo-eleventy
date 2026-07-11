@@ -167,13 +167,15 @@ collections:
     label: "Service Pages"
     folder: "src/services"
     create: true
-    slug: "{{slug}}"
+    # Tells Decap to name the markdown file explicitly based on the slug field value
+    slug: "{{fields.slug}}" 
     extension: "md"
     format: "yaml-frontmatter"
     fields:
-      - { label: "Service Slug Name", name: "title", widget: "string", hint: "e.g., Airport Transfer, Corporate Transportation" }
+      - { label: "Menu & Header Title", name: "title", widget: "string", hint: "What displays in the menu (e.g., Car Service)" }
+      - { label: "URL Slug", name: "slug", widget: "string", hint: "The clean URL string all lowercase with hyphens (e.g., car-service)" }
       
-      # --- Matching Location Structure Exactly ---
+      # --- SEO Settings ---
       - label: "SEO Settings"
         name: "seo"
         widget: "object"
@@ -181,6 +183,7 @@ collections:
           - { label: "Meta Title Override", name: "meta_title", widget: "string" }
           - { label: "Meta Description", name: "meta_description", widget: "text" }
           
+      # --- Page Content Blocks ---
       - label: "Page Content Blocks"
         name: "content_blocks"
         widget: "object"
@@ -190,6 +193,7 @@ collections:
           - { label: "Hero Image", name: "hero_image", widget: "image", default: "assets/img/hero.jpg" }
           - { label: "Body Text Content", name: "body_text", widget: "markdown", minimal: true }
 
+      # --- Sidebar Testimonials Array ---
       - label: "Sidebar Testimonials Array"
         name: "reviews"
         widget: "list"
