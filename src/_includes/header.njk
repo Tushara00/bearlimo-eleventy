@@ -45,13 +45,15 @@
         <nav aria-label="Primary">
           <ul id="primary-nav" class="nav-list">
             <li><a href="index.html" aria-current="page">Home</a></li>
-           <li class="has-dropdown">
-              <button type="button">Services</button>
-              <div class="dropdown" role="menu" aria-label="Service locations">
-                <a href=" airport.html">Airport Transfer</a><a href=" locations.html#alpharetta">Car Service</a>
-                <a href=" locations.html#athens">Corporate Transportation</a><a href=" locations.html#atlanta">Event Transportation</a><a href=" locations.html#augusta">Group Transportation</a><a href=" locations.html#columbus">Nationwide Limousine</a><a href=" locations.html#cypress">Party Bus</a><a href=" locations.html#destin">Super Bowl</a><a href=" locations.html#dublin">Wedding Transportation</a><a href=" locations.html#flowery-branch">All Services</a>
-              </div>
-            </li>
+         <li class="has-dropdown">
+  <button type="button" aria-haspopup="true" aria-expanded="false">Services</button>
+  <div class="dropdown" role="menu" aria-label="Services Available">
+    {% for service in collections.services %}
+      <a href="/{{ service.fileSlug }}/" role="menuitem">{{ service.data.title }}</a>
+    {% endfor %}
+    <a href="/services/" role="menuitem" style="border-top: 1px solid var(--line); font-weight: 600;">All Services</a>
+  </div>
+</li>
             <li><a href=" fleet.html">Fleet</a></li><li><a href=" about.html">About</a></li><li><a href=" contact.html">Contact</a></li>
 <li class="has-dropdown">
   <button type="button">Locations</button>
