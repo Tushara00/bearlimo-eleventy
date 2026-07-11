@@ -4,8 +4,8 @@ const { DateTime } = require("luxon");
 module.exports = function(eleventyConfig){
 
 // Configure markdown parsing options to match professional agency templates
-const markdownLibrary = markdownIt({
-  html: true,      // Ensures inline HTML elements pass through cleanly
+const markdownLibrary = MarkdownIt({
+ html: true,      // Ensures inline HTML elements pass through cleanly
   breaks: true,    // Turns double returns into paragraphs automatically
   linkify: true    // Auto-converts text URLs into clickable links
 }).use(markdownItAnchor, {
@@ -13,6 +13,7 @@ const markdownLibrary = markdownIt({
 });
 
 // Force Eleventy to use this library for all markdown files and template blocks
+
 eleventyConfig.setLibrary("md", markdownLibrary);
 eleventyConfig.addFilter("markdown", (content) => markdownLibrary.render(content || ""));
     eleventyConfig.addPassthroughCopy('./src/css/styles.css')
