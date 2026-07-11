@@ -8,12 +8,12 @@ backend:
 # Local dev: run `npx decap-server` and set local_backend: true
 local_backend: true
 
-media_folder: "public/site/assets/img"
-public_folder: "/site/assets/img"
+media_folder: "public/assets/img"
+public_folder: "assets/img"
 
 site_url: https://bearlimo.com
 display_url: https://bearlimo.com
-logo_url: /site/assets/img/hero.jpg
+logo_url: assets/img/hero.jpg
 
 collections:
   - name: "pages"
