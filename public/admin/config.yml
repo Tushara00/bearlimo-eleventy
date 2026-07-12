@@ -168,7 +168,7 @@ collections:
     folder: "src/services"
     create: true
     # Tells Decap to name the markdown file explicitly based on the slug field value
-    slug: "{{fields.slug}}" 
+    slug: "{{title}}"
     extension: "md"
     format: "yaml-frontmatter"
     fields:

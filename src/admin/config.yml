@@ -168,7 +168,7 @@ collections:
     folder: "src/services"
     create: true
     # Tells Decap to name the markdown file explicitly based on the slug field value
-    slug: "{{fields.slug}}" 
+    slug: "{{title}}"
     extension: "md"
     format: "yaml-frontmatter"
     fields:
@@ -252,7 +252,48 @@ collections:
         fields:
           - { label: "Review Text Quote", name: "quote", widget: "text" }
           - { label: "Reviewer Name & Designation", name: "reviewer_name", widget: "string" }                                
+
+  - name: "pages"
+    label: "Pages"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - file: "src/about.md"
+        label: "About Us Page"
+        name: "about"
+        format: "yaml-frontmatter"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
           
+          # --- SEO Settings ---
+          - label: "SEO Settings"
+            name: "seo"
+            widget: "object"
+            fields:
+              - { label: "Meta Title Override", name: "meta_title", widget: "string" }
+              - { label: "Meta Description", name: "meta_description", widget: "text" }
+
+          # --- Page Content Blocks ---
+          - label: "Page Content Blocks"
+            name: "content_blocks"
+            widget: "object"
+            fields:
+              - { label: "Section Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Main Header (H1)", name: "h1", widget: "string" }
+              - { label: "Hero Image", name: "hero_image", widget: "image", default: "assets/img/hero.jpg" }
+              - { label: "Body Text Content", name: "body_text", widget: "markdown" }
+
+          # --- Sidebar Core Values ---
+          - label: "Sidebar Core Values"
+            name: "core_values"
+            widget: "list"
+            max: 3
+            summary: "{{fields.value_title}}"
+            fields:
+              - { label: "Value Title", name: "value_title", widget: "string" }
+              - { label: "Value Description", name: "value_description", widget: "text" }
+
   # --- GLOBAL SITE SETTINGS ---
   - name: "settings"
     label: "Site Settings"
