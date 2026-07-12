@@ -295,18 +295,59 @@ collections:
               - { label: "Value Description", name: "value_description", widget: "text" }
 
   # --- GLOBAL SITE SETTINGS ---
-  - name: "settings"
-    label: "Site Settings"
+  - name: "settings_collection"
+    label: "Site Configurations"
+    delete: false # Prevents the client from deleting your settings file
     files:
-      - name: "general"
-        label: "General"
-        file: "content/settings/general.md"
-        format: "frontmatter"
+      - file: "src/_data/settings.json"
+        label: "Site Settings & Navigation"
+        name: "settings"
+        format: "json"
         fields:
-          - { name: "site_name", label: "Site name", widget: "string" }
-          - { name: "phone", label: "Phone number", widget: "string" }
-          - { name: "phone_tel", label: "Phone (tel: format)", widget: "string" }
-          - { name: "email", label: "Contact email", widget: "string" }
-          - { name: "address", label: "Address", widget: "text" }
-          - { name: "quote_url", label: "Quote / booking URL", widget: "string" }
-          - { name: "main_site_url", label: "Main site URL", widget: "string" }
+          # ==========================================
+          # NEW: LOGO & IDENTITY SETTINGS
+          # ==========================================
+          - label: "Site Identity & Logos"
+            name: "identity"
+            widget: "object"
+            fields:
+              - { label: "Main Header Logo Image", name: "logo", widget: "image", default: "assets/img/logo.png", hint: "Upload a transparent PNG or SVG logo file" }
+              - { label: "Logo Alt Text Description", name: "logo_alt", widget: "string", default: "Bear Limo Logo", hint: "Crucial for SEO and screen-readers (e.g., Bear Limo — Nationwide Luxury Chauffeur Network)" }
+
+          # ==========================================
+          # 1. TOP UTILITY BAR SETTINGS
+          # ==========================================
+          - label: "Top Utility Bar Settings"
+            name: "top_bar"
+            widget: "object"
+            fields:
+              - { label: "Display Phone Number", name: "phone", widget: "string", default: "(404) 424-4499" }
+              - { label: "Display Email Address", name: "email", widget: "string", default: "info@grandlimousine.com" }
+              - { label: "Book Online Button URL", name: "cta_url", widget: "string", default: "https://app.myridesync.com/quote?uid=grandlimousine" }
+
+          # ==========================================
+          # 2. HEADER MAIN NAVIGATION
+          # ==========================================
+          - label: "Header Main Navigation"
+            name: "header_links"
+            widget: "list"
+            summary: "{{fields.label}} -> {{fields.url}}"
+            fields:
+              - { label: "Link Text Label", name: "label", widget: "string" }
+              - { label: "Target URL Path", name: "url", widget: "string", hint: "e.g., /about/, /fleet/, /contact/" }
+
+          # ==========================================
+          # 3. FOOTER COLUMNS
+          # ==========================================
+          - label: "Footer Links Section"
+            name: "footer"
+            widget: "object"
+            fields:
+              - label: "Footer Column (Explore Links)"
+                name: "explore_links"
+                widget: "list"
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: "Link Text Label", name: "label", widget: "string" }
+                  - { label: "Target URL Path", name: "url", widget: "string" }
+   
