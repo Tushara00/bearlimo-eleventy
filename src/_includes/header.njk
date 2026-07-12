@@ -61,16 +61,12 @@
     {% endfor %}
   </div>
 </li>
-           {% for path in ["/fleet/", "/about/", "/contact/"] %}
-  {% for item in collections.all %}
-    {% if item.url == path %}
-      <li>
-        <a href="{{ item.url }}" {% if item.url == page.url %}aria-current="page"{% endif %}>
-          {{ item.data.title or item.fileSlug | capitalize }}
-        </a>
-      </li>
-    {% endif %}
-  {% endfor %}
+         {% for item in settings.navigation %}
+  <li>
+    <a href="{{ item.url }}" {% if item.url == page.url %}aria-current="page"{% endif %}>
+      {{ item.label }}
+    </a>
+  </li>
 {% endfor %}
 <li class="has-dropdown">
   <button type="button">Locations</button>
@@ -83,7 +79,7 @@
     {% endfor %}
   </div>
 </li>
-            <li><a href=" terms.html">Terms</a></li>
+            
             <li class="nav-cta">
               <a  style = "color:#000000" class="btn btn-solid btn-sm" href="https://app.myridesync.com/quote?uid=grandlimousine" rel="noopener" target="_blank">Get a Quote</a>
             </li>
