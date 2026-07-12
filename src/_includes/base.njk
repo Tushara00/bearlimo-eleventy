@@ -1,41 +1,40 @@
 <!doctype html>
 <html lang="en">
 <head>
-<!-- 1. DYNAMIC SEO & META STACK (Swaps titles and descriptions per page) -->
+  <!-- 1. DYNAMIC SEO & META STACK (Handles title, descriptions, canonicals dynamically) -->
   {% include "seo.njk" %}
-<meta name="theme-color" content="#000000">
-<title>Bear Limo — Luxury Chauffeur, Black Car &amp; Limo Service Nationwide</title>
-<meta name="description" content="Bear Limo provides luxury limousine, black car, SUV and party bus service in 27 U.S. cities. Airport transfers, weddings, corporate and event transportation, booked in minutes.">
-<link rel="canonical" href="https://bearlimo.com/">
 
-<link rel="icon" href="/favicon.ico">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="assets/images/hero.webp" type="image/webp" fetchpriority="high">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap">
-<link rel="stylesheet" href="/assets/css/styles.css">
-<!-- 1. Business Profile Schema Markup -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LimousineService",
-  "name": "Bear Limo",
-  "url": "https://bearlimo.com",
-  "telephone": "{{ settings.top_bar.phone or '(404) 424-4499' }}",
-  "email": "{{ settings.top_bar.email or 'info@grandlimousine.com' }}",
-  "priceRange": "$$$",
-  "image": "https://bearlimo.com/assets/images/hero.jpg",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "32 Peachtree St NW",
-    "addressLocality": "Atlanta",
-    "addressRegion": "GA",
-    "addressCountry": "US"
-  },
-  "areaServed": ["Albany", "Alpharetta", "Athens", "Atlanta", "Augusta", "Columbus", "Cypress", "Destin", "Dublin", "Flowery Branch", "Houston", "Jacksonville", "Johns Creek", "Macon", "McDonough", "Miami", "Milledgeville", "Nashville", "Orlando", "Peachtree City", "Sandy Springs", "Savannah", "Stockbridge", "Sugar Land", "Tallahassee", "Tampa", "Tomball"],
-  "sameAs": ["https://www.grandlimousine.com"]
-}
-</script>
+  <meta name="theme-color" content="#000000">
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="/assets/images/hero.webp" type="image/webp" fetchpriority="high">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+
+  <!-- 1. Business Profile Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LimousineService",
+    "name": "Bear Limo",
+    "url": "https://bearlimo.com",
+    "telephone": "{{ settings.top_bar.phone or '(404) 424-4499' }}",
+    "email": "{{ settings.top_bar.email or 'info@grandlimousine.com' }}",
+    "priceRange": "$$$",
+    "image": "https://bearlimo.com/assets/images/hero.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "32 Peachtree St NW",
+      "addressLocality": "Atlanta",
+      "addressRegion": "GA",
+      "addressCountry": "US"
+    },
+    "areaServed": ["Albany", "Alpharetta", "Athens", "Atlanta", "Augusta", "Columbus", "Cypress", "Destin", "Dublin", "Flowery Branch", "Houston", "Jacksonville", "Johns Creek", "Macon", "McDonough", "Miami", "Milledgeville", "Nashville", "Orlando", "Peachtree City", "Sandy Springs", "Savannah", "Stockbridge", "Sugar Land", "Tallahassee", "Tampa", "Tomball"],
+    "sameAs": ["https://www.grandlimousine.com"]
+  }
+  </script>
 
 <!-- 2. FAQ Snippet Schema Markup -->
 <script type="application/ld+json">

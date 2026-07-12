@@ -13,7 +13,7 @@
             <h4>Explore</h4>
             <ul>
          {# Loops through the clean settings file to ensure root paths like /fleet/ are always correct #}
-  {% for item in settings.footer %}
+  {% for item in settings.footer.explore_links %}
     <li>
       <a href="{{ item.url }}">
         {{ item.label }}
