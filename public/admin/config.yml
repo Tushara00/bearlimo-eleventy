@@ -252,20 +252,215 @@ collections:
         fields:
           - { label: "Review Text Quote", name: "quote", widget: "text" }
           - { label: "Reviewer Name & Designation", name: "reviewer_name", widget: "string" }                                
-          
-  # --- GLOBAL SITE SETTINGS ---
-  - name: "settings"
-    label: "Site Settings"
+
+  - name: "pages"
+    label: "Pages"
+    delete: false
+    editor:
+      preview: false
     files:
-      - name: "general"
-        label: "General"
-        file: "content/settings/general.md"
-        format: "frontmatter"
+      - file: "src/about.md"
+        label: "About Us Page"
+        name: "about"
+        format: "yaml-frontmatter"
         fields:
-          - { name: "site_name", label: "Site name", widget: "string" }
-          - { name: "phone", label: "Phone number", widget: "string" }
-          - { name: "phone_tel", label: "Phone (tel: format)", widget: "string" }
-          - { name: "email", label: "Contact email", widget: "string" }
-          - { name: "address", label: "Address", widget: "text" }
-          - { name: "quote_url", label: "Quote / booking URL", widget: "string" }
-          - { name: "main_site_url", label: "Main site URL", widget: "string" }
+          - { label: "Page Title", name: "title", widget: "string" }
+          
+          # --- SEO Settings ---
+          - label: "SEO Settings"
+            name: "seo"
+            widget: "object"
+            fields:
+              - { label: "Meta Title Override", name: "meta_title", widget: "string" }
+              - { label: "Meta Description", name: "meta_description", widget: "text" }
+
+          # --- Page Content Blocks ---
+          - label: "Page Content Blocks"
+            name: "content_blocks"
+            widget: "object"
+            fields:
+              - { label: "Section Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Main Header (H1)", name: "h1", widget: "string" }
+              - { label: "Hero Image", name: "hero_image", widget: "image", default: "assets/img/hero.jpg" }
+              - { label: "Body Text Content", name: "body_text", widget: "markdown" }
+
+          # --- Sidebar Core Values ---
+          - label: "Sidebar Core Values"
+            name: "core_values"
+            widget: "list"
+            max: 3
+            summary: "{{fields.value_title}}"
+            fields:
+              - { label: "Value Title", name: "value_title", widget: "string" }
+              - { label: "Value Description", name: "value_description", widget: "text" }
+
+    
+    label: "Fleet Page"
+    files:
+         file: "src/fleet.md"
+        fields:
+      - { label: "Title", name: "title", widget: "hidden", default: "Fleet" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "fleet.njk" }
+      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/fleet/" }
+      
+      # Unified SEO Object block matching your About page
+      - label: "SEO Settings"
+        name: "seo"
+        widget: "object"
+        fields:
+          - { label: "Meta Title", name: "meta_title", widget: "string" }
+          - { label: "Meta Description", name: "meta_description", widget: "text" }
+          
+      - label: "Hero Section"
+        name: "hero"
+        widget: "object"
+        fields:
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "H1 Heading", name: "h1", widget: "string" }
+          - { label: "Subtext Description", name: "text", widget: "text" }
+
+      - label: "Vehicles List"
+        name: "fleet_list"
+        widget: "list"
+        allow_add: true
+        fields:
+          - { label: "Vehicle Class Name", name: "name", widget: "string" }
+          - { label: "Passenger Count Text", name: "passengers", widget: "string", hint: "e.g., 1–3 passengers" }
+          - { label: "Example Models/Features", name: "models", widget: "string", hint: "e.g., Mercedes-Benz S-Class" }
+          - { label: "Starting Price", name: "price", widget: "string", hint: "e.g., From $85/hr" }
+          - { label: "Vehicle Image Asset Path", name: "image", widget: "string", hint: "Provide path without ext name like assets/img/fleet-sedan" }
+          - { label: "Image Alt Text", name: "alt", widget: "string" }
+  
+  
+    label: "Fleet Page"
+    file: "src/fleet.md"
+    fields:
+      - { label: "Title", name: "title", widget: "hidden", default: "Fleet" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "fleet.njk" }
+      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/fleet/" }
+      
+      # Unified SEO Object block matching your About page
+      - label: "SEO Settings"
+        name: "seo"
+        widget: "object"
+        fields:
+          - { label: "Meta Title", name: "meta_title", widget: "string" }
+          - { label: "Meta Description", name: "meta_description", widget: "text" }
+          
+      - label: "Hero Section"
+        name: "hero"
+        widget: "object"
+        fields:
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "H1 Heading", name: "h1", widget: "string" }
+          - { label: "Subtext Description", name: "text", widget: "text" }
+
+      - label: "Vehicles List"
+        name: "fleet_list"
+        widget: "list"
+        allow_add: true
+        fields:
+          - { label: "Vehicle Class Name", name: "name", widget: "string" }
+          - { label: "Passenger Count Text", name: "passengers", widget: "string", hint: "e.g., 1–3 passengers" }
+          - { label: "Example Models/Features", name: "models", widget: "string", hint: "e.g., Mercedes-Benz S-Class" }
+          - { label: "Starting Price", name: "price", widget: "string", hint: "e.g., From $85/hr" }
+          - { label: "Vehicle Image Asset Path", name: "image", widget: "string", hint: "Provide path without ext name like assets/img/fleet-sedan" }
+          - { label: "Image Alt Text", name: "alt", widget: "string" }
+ 
+  - name: "pages"
+    label: "Core Pages"
+    # FIXED: Individual files must sit inside a 'files' array list
+    files:
+      - name: "fleet"
+        label: "Fleet Page"
+        file: "src/fleet.md"
+        fields:
+          - { label: "Title", name: "title", widget: "hidden", default: "Fleet" }
+          - { label: "Layout", name: "layout", widget: "hidden", default: "fleet.njk" }
+          - { label: "Permalink", name: "permalink", widget: "hidden", default: "/fleet/" }
+          
+          # Unified SEO Object block matching your About page
+          - label: "SEO Settings"
+            name: "seo"
+            widget: "object"
+            fields:
+              - { label: "Meta Title", name: "meta_title", widget: "string" }
+              - { label: "Meta Description", name: "meta_description", widget: "text" }
+              
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "H1 Heading", name: "h1", widget: "string" }
+              - { label: "Subtext Description", name: "text", widget: "text" }
+
+          - label: "Vehicles List"
+            name: "fleet_list"
+            widget: "list"
+            allow_add: true
+            fields:
+              - { label: "Vehicle Class Name", name: "name", widget: "string" }
+              - { label: "Passenger Count Text", name: "passengers", widget: "string", hint: "e.g., 1–3 passengers" }
+              - { label: "Example Models/Features", name: "models", widget: "string", hint: "e.g., Mercedes-Benz S-Class" }
+              - { label: "Starting Price", name: "price", widget: "string", hint: "e.g., From $85/hr" }
+              - { label: "Vehicle Image Asset Path", name: "image", widget: "string", hint: "Provide path without ext name like assets/img/fleet-sedan" }
+              - { label: "Image Alt Text", name: "alt", widget: "string" }
+ 
+  # --- GLOBAL SITE SETTINGS ---
+  - name: "settings_collection"
+    label: "Site Configurations"
+    delete: false # Prevents the client from deleting your settings file
+    files:
+      - file: "src/_data/settings.json"
+        label: "Site Settings & Navigation"
+        name: "settings"
+        format: "json"
+        fields:
+          # ==========================================
+          # NEW: LOGO & IDENTITY SETTINGS
+          # ==========================================
+          - label: "Site Identity & Logos"
+            name: "identity"
+            widget: "object"
+            fields:
+              - { label: "Main Header Logo Image", name: "logo", widget: "image", default: "assets/img/logo.png", hint: "Upload a transparent PNG or SVG logo file" }
+              - { label: "Logo Alt Text Description", name: "logo_alt", widget: "string", default: "Bear Limo Logo", hint: "Crucial for SEO and screen-readers (e.g., Bear Limo — Nationwide Luxury Chauffeur Network)" }
+
+          # ==========================================
+          # 1. TOP UTILITY BAR SETTINGS
+          # ==========================================
+          - label: "Top Utility Bar Settings"
+            name: "top_bar"
+            widget: "object"
+            fields:
+              - { label: "Display Phone Number", name: "phone", widget: "string", default: "(404) 424-4499" }
+              - { label: "Display Email Address", name: "email", widget: "string", default: "info@grandlimousine.com" }
+              - { label: "Book Online Button URL", name: "cta_url", widget: "string", default: "https://app.myridesync.com/quote?uid=grandlimousine" }
+
+          # ==========================================
+          # 2. HEADER MAIN NAVIGATION
+          # ==========================================
+          - label: "Header Main Navigation"
+            name: "header_links"
+            widget: "list"
+            summary: "{{fields.label}} -> {{fields.url}}"
+            fields:
+              - { label: "Link Text Label", name: "label", widget: "string" }
+              - { label: "Target URL Path", name: "url", widget: "string", hint: "e.g., /about/, /fleet/, /contact/" }
+
+          # ==========================================
+          # 3. FOOTER COLUMNS
+          # ==========================================
+          - label: "Footer Links Section"
+            name: "footer"
+            widget: "object"
+            fields:
+              - label: "Footer Column (Explore Links)"
+                name: "explore_links"
+                widget: "list"
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: "Link Text Label", name: "label", widget: "string" }
+                  - { label: "Target URL Path", name: "url", widget: "string" }
+   

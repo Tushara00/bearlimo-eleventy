@@ -294,6 +294,119 @@ collections:
               - { label: "Value Title", name: "value_title", widget: "string" }
               - { label: "Value Description", name: "value_description", widget: "text" }
 
+    
+    label: "Fleet Page"
+    files:
+         file: "src/fleet.md"
+        fields:
+      - { label: "Title", name: "title", widget: "hidden", default: "Fleet" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "fleet.njk" }
+      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/fleet/" }
+      
+      # Unified SEO Object block matching your About page
+      - label: "SEO Settings"
+        name: "seo"
+        widget: "object"
+        fields:
+          - { label: "Meta Title", name: "meta_title", widget: "string" }
+          - { label: "Meta Description", name: "meta_description", widget: "text" }
+          
+      - label: "Hero Section"
+        name: "hero"
+        widget: "object"
+        fields:
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "H1 Heading", name: "h1", widget: "string" }
+          - { label: "Subtext Description", name: "text", widget: "text" }
+
+      - label: "Vehicles List"
+        name: "fleet_list"
+        widget: "list"
+        allow_add: true
+        fields:
+          - { label: "Vehicle Class Name", name: "name", widget: "string" }
+          - { label: "Passenger Count Text", name: "passengers", widget: "string", hint: "e.g., 1–3 passengers" }
+          - { label: "Example Models/Features", name: "models", widget: "string", hint: "e.g., Mercedes-Benz S-Class" }
+          - { label: "Starting Price", name: "price", widget: "string", hint: "e.g., From $85/hr" }
+          - { label: "Vehicle Image Asset Path", name: "image", widget: "string", hint: "Provide path without ext name like assets/img/fleet-sedan" }
+          - { label: "Image Alt Text", name: "alt", widget: "string" }
+  
+  
+    label: "Fleet Page"
+    file: "src/fleet.md"
+    fields:
+      - { label: "Title", name: "title", widget: "hidden", default: "Fleet" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "fleet.njk" }
+      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/fleet/" }
+      
+      # Unified SEO Object block matching your About page
+      - label: "SEO Settings"
+        name: "seo"
+        widget: "object"
+        fields:
+          - { label: "Meta Title", name: "meta_title", widget: "string" }
+          - { label: "Meta Description", name: "meta_description", widget: "text" }
+          
+      - label: "Hero Section"
+        name: "hero"
+        widget: "object"
+        fields:
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "H1 Heading", name: "h1", widget: "string" }
+          - { label: "Subtext Description", name: "text", widget: "text" }
+
+      - label: "Vehicles List"
+        name: "fleet_list"
+        widget: "list"
+        allow_add: true
+        fields:
+          - { label: "Vehicle Class Name", name: "name", widget: "string" }
+          - { label: "Passenger Count Text", name: "passengers", widget: "string", hint: "e.g., 1–3 passengers" }
+          - { label: "Example Models/Features", name: "models", widget: "string", hint: "e.g., Mercedes-Benz S-Class" }
+          - { label: "Starting Price", name: "price", widget: "string", hint: "e.g., From $85/hr" }
+          - { label: "Vehicle Image Asset Path", name: "image", widget: "string", hint: "Provide path without ext name like assets/img/fleet-sedan" }
+          - { label: "Image Alt Text", name: "alt", widget: "string" }
+ 
+  - name: "pages"
+    label: "Core Pages"
+    # FIXED: Individual files must sit inside a 'files' array list
+    files:
+      - name: "fleet"
+        label: "Fleet Page"
+        file: "src/fleet.md"
+        fields:
+          - { label: "Title", name: "title", widget: "hidden", default: "Fleet" }
+          - { label: "Layout", name: "layout", widget: "hidden", default: "fleet.njk" }
+          - { label: "Permalink", name: "permalink", widget: "hidden", default: "/fleet/" }
+          
+          # Unified SEO Object block matching your About page
+          - label: "SEO Settings"
+            name: "seo"
+            widget: "object"
+            fields:
+              - { label: "Meta Title", name: "meta_title", widget: "string" }
+              - { label: "Meta Description", name: "meta_description", widget: "text" }
+              
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "H1 Heading", name: "h1", widget: "string" }
+              - { label: "Subtext Description", name: "text", widget: "text" }
+
+          - label: "Vehicles List"
+            name: "fleet_list"
+            widget: "list"
+            allow_add: true
+            fields:
+              - { label: "Vehicle Class Name", name: "name", widget: "string" }
+              - { label: "Passenger Count Text", name: "passengers", widget: "string", hint: "e.g., 1–3 passengers" }
+              - { label: "Example Models/Features", name: "models", widget: "string", hint: "e.g., Mercedes-Benz S-Class" }
+              - { label: "Starting Price", name: "price", widget: "string", hint: "e.g., From $85/hr" }
+              - { label: "Vehicle Image Asset Path", name: "image", widget: "string", hint: "Provide path without ext name like assets/img/fleet-sedan" }
+              - { label: "Image Alt Text", name: "alt", widget: "string" }
+ 
   # --- GLOBAL SITE SETTINGS ---
   - name: "settings_collection"
     label: "Site Configurations"

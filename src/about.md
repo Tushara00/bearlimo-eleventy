@@ -1,5 +1,8 @@
 ---
-title: "About Bear Limo"
+layout: about.njk
+title: About
+permalink: /about/
+
 seo:
   meta_title: "About Bear Limo — Nationwide Luxury Chauffeur Network"
   meta_description: "Bear Limo is a nationwide luxury chauffeur network with 15+ years on the road and 24/7 dispatch across 27 U.S. cities."

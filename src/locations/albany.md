@@ -1,6 +1,7 @@
 ---
-title: Albany
-state_abbr: NY
+
+title: About
+
 seo:
   meta_title: Luxury Limo & Black Car Service Albany NY | Bear Limo
   meta_description: Premium corporate black car service, luxury airport transfers
