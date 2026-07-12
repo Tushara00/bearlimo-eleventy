@@ -374,7 +374,7 @@ collections:
             name: "identity"
             widget: "object"
             fields:
-              - { label: "Main Header Logo Image", name: "logo", widget: "image", default: "assets/img/logo.png", hint: "Upload a transparent PNG or SVG logo file" }
+              - { label: "Main Header Logo Image", name: "logo", widget: "image", required: false, hint: "Upload a transparent PNG or SVG logo file" }
               - { label: "Logo Alt Text Description", name: "logo_alt", widget: "string", default: "Bear Limo Logo", hint: "Crucial for SEO and screen-readers (e.g., Bear Limo — Nationwide Luxury Chauffeur Network)" }
 
           # ==========================================
