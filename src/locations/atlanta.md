@@ -1,6 +1,6 @@
 ---
 title: Atlanta
-state_abbr: Ny
+
 seo:
   meta_title: Luxury Limo & Black Car Service Albany NY | Bear Limo
   meta_description: Luxury Limo & Black Car Service Albany NY | Bear Limo

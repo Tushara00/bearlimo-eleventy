@@ -1,6 +1,6 @@
 ---
 
-title: About
+title: Albany
 
 seo:
   meta_title: Luxury Limo & Black Car Service Albany NY | Bear Limo
