@@ -1,6 +1,6 @@
 {
   "identity": {
-    "logo": "",
+    "logo": "assets/img/logosmall.avif",
     "logo_alt": "Bear Limo — Nationwide Luxury Chauffeur Network"
   },
   "top_bar": {
@@ -9,17 +9,41 @@
     "cta_url": "https://app.myridesync.com/quote?uid=grandlimousine"
   },
   "header_links": [
-    { "label": "Fleet", "url": "/fleet/" },
-    { "label": "About", "url": "/about/" },
-    { "label": "Contact", "url": "/contact/" }
+    {
+      "label": "Fleet",
+      "url": "/fleet/"
+    },
+    {
+      "label": "About",
+      "url": "/about/"
+    },
+    {
+      "label": "Contact",
+      "url": "/contact/"
+    }
   ],
   "footer": {
     "explore_links": [
-      { "label": "Services", "url": "/services/" },
-      { "label": "Fleet", "url": "/fleet/" },
-      { "label": "Locations", "url": "/locations/" },
-      { "label": "About", "url": "/about/" },
-      { "label": "Contact", "url": "/contact/" }
+      {
+        "label": "Services",
+        "url": "/services/"
+      },
+      {
+        "label": "Fleet",
+        "url": "/fleet/"
+      },
+      {
+        "label": "Locations",
+        "url": "/locations/"
+      },
+      {
+        "label": "About",
+        "url": "/about/"
+      },
+      {
+        "label": "Contact",
+        "url": "/contact/"
+      }
     ]
   }
 }
