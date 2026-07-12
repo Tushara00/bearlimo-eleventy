@@ -242,12 +242,23 @@ collections:
       # =========================================================================
       # 4. CONTACT PAGE
       # =========================================================================
+      # =========================================================================
+      # 4. CONTACT PAGE
+      # =========================================================================
       - file: "src/contact.md"
         label: "Contact Page"
         name: "contact"
         format: "yaml-frontmatter"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
+          
+          # --- SEO Settings ---
+          - label: "SEO Settings"
+            name: "seo"
+            widget: "object"
+            fields:
+              - { label: "Meta Title Override", name: "meta_title", widget: "string" }
+              - { label: "Meta Description", name: "meta_description", widget: "text" }
 
 
   - name: "services"
