@@ -35,6 +35,11 @@
       {
         "label": "Contact",
         "url": "/contact/"
+      },
+
+      {
+        "label": "Terms",
+        "url": "/terms/"
       }
     ]
   }
