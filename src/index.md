@@ -60,27 +60,27 @@ services_section:
     - icon_letter: "A"
       title: "Airport Transfers"
       body: "Flight-tracked pickups, meet-and-greet, luggage handling and on-time drop-offs at every major U.S. airport."
-      url: "services.html#airport"
+     
     - icon_letter: "C"
       title: "Corporate Travel"
       body: "Discreet, punctual executive rides. Hourly, transfer and roadshow programs with itemized billing."
-      url: "services.html#corporate"
+     
     - icon_letter: "W"
       title: "Weddings"
       body: "Stretch limousines, party buses and matched sedans for the couple, the party and the guests."
-      url: "services.html#weddings"
+      
     - icon_letter: "E"
       title: "Special Events"
       body: "Proms, anniversaries, concerts, sporting events — group logistics without the drama."
-      url: "services.html#events"
+    
     - icon_letter: "G"
       title: "Group Transportation"
       body: "Coordinated multi-vehicle fleets for conferences, tours and corporate offsites."
-      url: "services.html#group"
+     
     - icon_letter: "H"
       title: "Hourly Chauffeur"
       body: "A car and driver at your disposal for the day. Meetings, shopping, appointments, city tours."
-      url: "services.html#hourly"
+      
 
 
 fleet_section:
@@ -111,59 +111,59 @@ coverage_section:
   description: "From Atlanta to Houston, Miami to Nashville — dispatch is local, standards are national."
   locations:
     - city_name: "Albany"
-      url: "locations.html#albany"
+      
     - city_name: "Alpharetta"
-      url: "locations.html#alpharetta"
+    
     - city_name: "Athens"
-      url: "locations.html#athens"
+     
     - city_name: "Atlanta"
-      url: "locations.html#atlanta"
+     
     - city_name: "Augusta"
-      url: "locations.html#augusta"
+      
     - city_name: "Columbus"
-      url: "locations.html#columbus"
+      
     - city_name: "Cypress"
-      url: "locations.html#cypress"
+      
     - city_name: "Destin"
-      url: "locations.html#destin"
+     
     - city_name: "Dublin"
-      url: "locations.html#dublin"
+     
     - city_name: "Flowery Branch"
-      url: "locations.html#flowery-branch"
+      
     - city_name: "Houston"
-      url: "locations.html#houston"
+      
     - city_name: "Jacksonville"
-      url: "locations.html#jacksonville"
+     
     - city_name: "Johns Creek"
-      url: "locations.html#johns-creek"
+     
     - city_name: "Macon"
-      url: "locations.html#macon"
+     
     - city_name: "McDonough"
-      url: "locations.html#mcdonough"
+    
     - city_name: "Miami"
-      url: "locations.html#miami"
+     
     - city_name: "Milledgeville"
-      url: "locations.html#milledgeville"
+      
     - city_name: "Nashville"
-      url: "locations.html#nashville"
+   
     - city_name: "Orlando"
-      url: "locations.html#orlando"
+      
     - city_name: "Peachtree City"
-      url: "locations.html#peachtree-city"
+      
     - city_name: "Sandy Springs"
-      url: "locations.html#sandy-springs"
+      
     - city_name: "Savannah"
-      url: "locations.html#savannah"
+   
     - city_name: "Stockbridge"
-      url: "locations.html#stockbridge"
+      
     - city_name: "Sugar Land"
-      url: "locations.html#sugar-land"
+     
     - city_name: "Tallahassee"
-      url: "locations.html#tallahassee"
+     
     - city_name: "Tampa"
-      url: "locations.html#tampa"
+     
     - city_name: "Tomball"
-      url: "locations.html#tomball"
+      
 
 
 cta_band:

@@ -12,11 +12,14 @@
           <div>
             <h4>Explore</h4>
             <ul>
-              <li><a href=" services.html">Services</a></li>
-              <li><a href=" fleet.html">Fleet</a></li>
-              <li><a href=" locations.html">Locations</a></li>
-              <li><a href=" about.html">About</a></li>
-              <li><a href=" contact.html">Contact</a></li>
+         {# Loops through the clean settings file to ensure root paths like /fleet/ are always correct #}
+  {% for item in settings.footer %}
+    <li>
+      <a href="{{ item.url }}">
+        {{ item.label }}
+      </a>
+    </li>
+  {% endfor %}
             </ul>
           </div>
           <div>

@@ -36,7 +36,7 @@ meta_description: "Learn about Bear Limo's premium nationwide luxury chauffeur, 
         <!-- FIXED: Removed "about." prefix -->
         {% for value in core_values %}
           <blockquote style="margin: 0; padding: 0; {% if loop.index > 1 %}border-top: 1px solid var(--line, #eaeaea); padding-top: 24px;{% endif %}">
-            <p style="font-family: var(--f-display, sans-serif); font-size: 1.15rem; font-weight: 600; color: #111111; line-height: 1.4; margin-bottom: 8px;">{{ value.value_title }}</p>
+            <p style="font-family: var(--f-display, sans-serif); font-size: 1.15rem; font-weight: 600; ; line-height: 1.4; margin-bottom: 8px;">{{ value.value_title }}</p>
             <p style="font-size: 0.9rem; color: var(--muted, #666); margin: 0; line-height: 1.5;">{{ value.value_description }}</p>
           </blockquote>
         {% endfor %}

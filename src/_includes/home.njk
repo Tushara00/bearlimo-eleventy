@@ -232,55 +232,44 @@ a.accent-link {
     </div>
     
     <!-- Loop Through Service Grid Cards -->
-    <div class="grid grid-3">
-      {% for card in services_section.cards %}
-        <article class="card reveal">
-          <div class="card-icon">{{ card.icon_letter | default('•') }}</div>
-          <h3>{{ card.title }}</h3>
-          <p>{{ card.body }}</p>
-          <a href="{{ card.url | default('#') }}">Learn more →</a>
-        </article>
-      {% endfor %}
-    </div>
-
-  </div>
-</section>
-
-     <section class="section" aria-labelledby="fleet-preview">
-  <div class="container">
+   <div class="grid grid-3">
+  {% for card in services_section.cards %}
     
-    <!-- Section Header Elements -->
-    <div class="section-head reveal">
-      <span class="eyebrow">{{ fleet_section.eyebrow | default('The Fleet') }}</span>
-      <h2 id="fleet-preview">{{ fleet_section.heading | default('A vehicle for every arrival.') }}</h2>
-    </div>
+    {# 1. Strict slug-to-slug verification #}
+    {% set service_exists = false %}
+    {% set target_slug = "" %}
     
-    <!-- Dynamic Vehicle Layout Wrapper -->
-    <div class="fleet-grid">
-      {% for vehicle in fleet_section.vehicles %}
-        <article class="fleet-card reveal">
-          <figure>
-            <picture>
-              {% if vehicle.image_webp %}
-                <source srcset="{{ vehicle.image_webp }}" type="image/webp">
-              {% endif %}
-              <img src="{{ vehicle.image_jpg | default('assets/img/fleet-sedan.jpg') }}" 
-                   alt="Black {{ vehicle.name }} profile view" 
-                   loading="lazy" 
-                   decoding="async" 
-                   width="1200" 
-                   height="800">
-            </picture>
-          </figure>
-          <div class="fleet-card-body">
-            <h3>{{ vehicle.name }}</h3>
-            <p>{{ vehicle.specs }}</p>
-          </div>
-        </article>
-      {% endfor %}
-    </div>
+    {# Convert card title to a clean slug (e.g., "airport-transfers") #}
+    {% set card_slug = card.title | slugify %}
 
-  </div>
+    {% for item in collections.all %}
+      {% set item_title_slug = item.data.title | slugify | default('') %}
+      {% set item_frontmatter_slug = item.data.slug | slugify | default('') %}
+      {% set item_file_slug = item.fileSlug | slugify | default('') %}
+
+      {# Check if the card slug matches the title, front matter slug, or filename slug #}
+      {% if (card_slug == item_title_slug) or 
+            (card_slug == item_frontmatter_slug) or 
+            (card_slug == item_file_slug) or
+            (card_slug ~ "s" == item_file_slug) or
+            (item_file_slug ~ "s" == card_slug) %}
+        {% set service_exists = true %}
+        {# Save the exact slug of the matching file #}
+        {% set target_slug = item_file_slug %}
+      {% endif %}
+    {% endfor %}
+
+    <article class="card reveal">
+      <div class="card-icon">{{ card.icon_letter | default('•') }}</div>
+      <h3>{{ card.title }}</h3>
+      <p>{{ card.body }}</p>
+      
+      {# 2. Correct URL routing: Forces root level path format /slug/ #}
+      {% set root_url = "/" ~ target_slug ~ "/" %}
+      <a href="{{ root_url if service_exists else '#' }}">Learn more →</a>
+    </article>
+  {% endfor %}
+</div>
 </section>
 
 <section class="section" aria-labelledby="locations">
@@ -295,10 +284,28 @@ a.accent-link {
     
     <!-- Dynamic Responsive Locations Navigation Grid -->
     <nav class="loc-grid reveal" aria-label="All service locations">
-      {% for loc in coverage_section.locations %}
-        <a href="{{ loc.url | default('#') }}">{{ loc.city_name }}</a>
-      {% endfor %}
-    </nav>
+   
+  {% for loc in coverage_section.locations %}
+    
+    {# 1. Check if a page with this city title actually exists #}
+    {% set page_exists = false %}
+    
+    {% for item in collections.all %}
+      {% if item.data.title | lower == loc.city_name | lower %}
+        {% set page_exists = true %}
+      {% endif %}
+    {% endfor %}
+
+    {# 2. If it exists, force the clean root URL path. If not, lock it with '#' #}
+    {% set clean_url = "/" ~ loc.city_name | slugify ~ "/" %}
+
+    <a href="{{ clean_url if page_exists else '#' }}">
+      {{ loc.city_name }}
+    </a>
+
+  {% endfor %}
+</nav>
+   
 
   </div>
 </section>
