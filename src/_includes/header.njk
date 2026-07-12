@@ -61,7 +61,7 @@
     {% endfor %}
   </div>
 </li>
-         {% for item in settings.navigation %}
+         {% for item in settings.header_links %}
   <li>
     <a href="{{ item.url }}" {% if item.url == page.url %}aria-current="page"{% endif %}>
       {{ item.label }}
