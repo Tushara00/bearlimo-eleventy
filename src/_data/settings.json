@@ -20,6 +20,10 @@
     {
       "label": "Contact",
       "url": "/contact/"
+    },
+    {
+      "label": "Terms",
+      "url": "/terms/"
     }
   ],
   "footer": {
@@ -36,7 +40,6 @@
         "label": "Contact",
         "url": "/contact/"
       },
-
       {
         "label": "Terms",
         "url": "/terms/"
