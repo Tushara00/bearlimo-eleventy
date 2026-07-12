@@ -1,7 +1,7 @@
 ---
-title: "Terms of Service"
 layout: "terms.njk"
-permalink: "/terms/"
+title: "Terms"
+permalink: /terms/
 
 # --- SEO Settings ---
 seo:
