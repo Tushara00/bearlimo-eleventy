@@ -10,7 +10,7 @@
   },
   "header_links": [
     {
-      "label": "Fleet us",
+      "label": "Fleet ",
       "url": "/fleet/"
     },
     {
@@ -25,16 +25,8 @@
   "footer": {
     "explore_links": [
       {
-        "label": "Services",
-        "url": "/services/"
-      },
-      {
         "label": "Fleet",
         "url": "/fleet/"
-      },
-      {
-        "label": "Locations",
-        "url": "/locations/"
       },
       {
         "label": "About",
