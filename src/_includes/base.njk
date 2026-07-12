@@ -13,29 +13,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="/assets/css/styles.css">
 
-  <!-- 1. Business Profile Schema Markup -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LimousineService",
-    "name": "Bear Limo",
-    "url": "https://bearlimo.com",
-    "telephone": "{{ settings.top_bar.phone or '(404) 424-4499' }}",
-    "email": "{{ settings.top_bar.email or 'info@grandlimousine.com' }}",
-    "priceRange": "$$$",
-    "image": "https://bearlimo.com/assets/images/hero.jpg",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "32 Peachtree St NW",
-      "addressLocality": "Atlanta",
-      "addressRegion": "GA",
-      "addressCountry": "US"
-    },
-    "areaServed": ["Albany", "Alpharetta", "Athens", "Atlanta", "Augusta", "Columbus", "Cypress", "Destin", "Dublin", "Flowery Branch", "Houston", "Jacksonville", "Johns Creek", "Macon", "McDonough", "Miami", "Milledgeville", "Nashville", "Orlando", "Peachtree City", "Sandy Springs", "Savannah", "Stockbridge", "Sugar Land", "Tallahassee", "Tampa", "Tomball"],
-    "sameAs": ["https://www.grandlimousine.com"]
-  }
-  </script>
-
 <!-- 2. FAQ Snippet Schema Markup -->
 <script type="application/ld+json">
 {
@@ -66,8 +43,6 @@
 {% include 'header.njk' %}
    {{content | safe}} 
 {% include 'footer.njk' %}
-
-
 
 </body>
 </html>
