@@ -20,10 +20,6 @@
     {
       "label": "Contact",
       "url": "/contact/"
-    },
-    {
-      "label": "New",
-      "url": "/new/"
     }
   ],
   "footer": {
