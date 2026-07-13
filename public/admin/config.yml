@@ -118,7 +118,7 @@ collections:
                   - { label: "Single Letter Icon", name: "icon_letter", widget: "string", hint: "A single capital letter (e.g., A, C, W)" }
                   - { label: "Service Title", name: "title", widget: "string" }
                   - { label: "Service Description", name: "body", widget: "text" }
-                  - { label: "Link Destination URL", name: "url", widget: "string" }
+                  - { label: "Link Destination URL", name: "url", widget: "string",required: false }
 
           # --- THE FLEET GRID SECTION ---
           - label: "Fleet Grid Section"
@@ -151,7 +151,7 @@ collections:
                 summary: "{{fields.city_name}}"
                 fields:
                   - { label: "City Name", name: "city_name", widget: "string" }
-                  - { label: "Target URL / Anchor Link", name: "url", widget: "string", hint: "e.g., locations.html#atlanta or /locations/atlanta" }
+                  - { label: "Target URL / Anchor Link", name: "url", widget: "string", required: false,hint: "e.g., /albany/" }
 
           # --- CTA BAND SECTION ---
           - label: "Bottom CTA Band"
@@ -271,7 +271,7 @@ collections:
     format: "yaml-frontmatter"
     fields:
       - { label: "Menu & Header Title", name: "title", widget: "string", hint: "What displays in the menu (e.g., Car Service)" }
-      - { label: "URL Slug", name: "slug", widget: "string", hint: "The clean URL string all lowercase with hyphens (e.g., car-service)" }
+      - { label: "URL Slug",required: false, name: "slug", widget: "string", hint: "The clean URL string all lowercase with hyphens (e.g., car-service)" }
       
       # --- SEO Settings ---
       - label: "SEO Settings"
